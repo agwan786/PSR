@@ -31,7 +31,10 @@ trait Validation
 				    echo 'Data should be numeric!';exit;
 			    } else {
 					if($param < 0) {
-					    echo 'Negative number not allowed';exit;
+						$neg = array_filter($parameters, function($x) {
+	                            return $x < 0;
+                              });
+					    echo 'Negative numbers ('.implode(',',$neg).') not allowed';exit;
 					}
 				}
 		    }
