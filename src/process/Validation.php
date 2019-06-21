@@ -27,9 +27,13 @@ trait Validation
 		
 		if(is_array($parameters) && !empty($parameters)){
             foreach($parameters as $param) {
-			    if(!is_numeric($param)) {
+			    if(!is_numeric($param)) {					
 				    echo 'Data should be numeric!';exit;
-			    }
+			    } else {
+					if($param < 0) {
+					    echo 'Negative number not allowed';exit;
+					}
+				}
 		    }
 		    return $parameters;
 		}
