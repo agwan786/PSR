@@ -35,6 +35,10 @@ trait Validation
 	                            return $x < 0;
                               });
 					    echo 'Negative numbers ('.implode(',',$neg).') not allowed';exit;
+					}else{
+						$parameters = array_filter($parameters, function($x) {
+	                            return $x < 1000;
+                            });
 					}
 				}
 		    }
