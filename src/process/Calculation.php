@@ -17,12 +17,12 @@ class Calculation extends Formula
 	) 
 	{
 		if($action != ''){
-                if($this->validateRequest(
+                if($parameters = $this->validateRequest(
 			        $action, 
 				    $params
 			    )
-			) {				
-				return $this->{$action}($params);
+			) {			
+				return $this->{$action}($parameters);
 			}
 		} else {
 			echo "No action provided";	
