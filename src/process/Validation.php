@@ -14,8 +14,15 @@ trait Validation
 				}
 			}
 			$parameters = explode(',', $parameters);
-		} elseif( strlen($parameters) > 0 && strrev(substr( $parameters, 0, 4 )) == true) {
-			
+		} elseif( 
+		          strlen($parameters) > 0 && 
+		          strrev(substr( $parameters, 0, 5 )) == true && 
+				  strlen(substr( $parameters, 0, 5 )) == 5 && 
+				  str_replace('\\', '@', substr( $parameters, 0, 2 )) == '@@'
+				) {
+			$delimiter  = $parameters[2];
+			$parameters = substr( $parameters, 5, strlen($parameters) );
+			$parameters = explode($delimiter, $parameters);
 		}
 		
 		if(is_array($parameters) && !empty($parameters)){
