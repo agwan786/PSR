@@ -1,10 +1,9 @@
 <?php
-
 namespace HR\ProcessOption\MyClass;
 
-use HR\PaymentOption\Payment;
+use HR\FormulaOption\Formula;
 
-class Calculation extends Payment
+class Calculation extends Formula
 {
 	
 	public function __construct()
@@ -15,7 +14,8 @@ class Calculation extends Payment
 	public function calculation(
 	    $action, 
 	    $params
-	) {
+	) 
+	{
 		if($action != ''){
                 if($this->validateRequest(
 			        $action, 
@@ -24,7 +24,7 @@ class Calculation extends Payment
 			) {				
 				return $this->{$action}($params);
 			}
-		}else{
+		} else {
 			echo "No action provided";	
 		}
 	}	

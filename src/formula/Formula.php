@@ -1,18 +1,19 @@
 <?php
-
-namespace HR\PaymentOption;
+namespace HR\FormulaOption;
 
 use HR\ProcessOption\MyInterFace\Skelton;
 use HR\ProcessOption\MyTrait\Validation;
 
-abstract class Payment implements Skelton{
+abstract class Formula implements Skelton
+{
 	use Validation;
 	
 	public function __construct(){}
 	
     abstract public function calculation($action, $params);	
 	
-	public function validateRequest($action, $params = []){
+	public function validateRequest($action, $params = [])
+	{
         if (method_exists($this, $action)) {
             return $this->paramCheck($params);
         } else {
@@ -20,7 +21,8 @@ abstract class Payment implements Skelton{
         }
 	}
 	
-	public function add($params = []){
+	public function add($params = [])
+	{
 		$sum = 0;
 		if(!empty($params)){
 			foreach($params as $param){
@@ -30,13 +32,14 @@ abstract class Payment implements Skelton{
 		return $sum;
 	}
 	
-	public function subtract($params = []){
+	public function subtract($params = [])
+	{
 		$subtract = 0;
-		if(!empty($params)){
-			for($i = 0; $i < count($params); $i++){
-				if($i == 0){
+		if(!empty($params)) {
+			for($i = 0; $i < count($params); $i++) {
+				if($i == 0) {
 					$subtract = $params[$i];
-				}else{
+				} else {
 					$subtract -= $params[$i];
 				}
 			}
@@ -44,13 +47,16 @@ abstract class Payment implements Skelton{
 		return $subtract;
 	}
 	
-	public function multiply($params = []){
+	public function multiply($params = [])
+	{
 		$multiply = 1;
-		if(!empty($params)){
-			foreach($params as $param){
+		if(!empty($params)) {
+			foreach($params as $param) {
 				$multiply *= $param;
 			}
 		}
 		return $multiply;
 	}
 }
+
+?>

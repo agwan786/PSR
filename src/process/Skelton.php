@@ -1,5 +1,4 @@
 <?php
-
 namespace HR\ProcessOption\MyInterFace;
 
 interface Skelton
