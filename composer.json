@@ -5,7 +5,7 @@
   "autoload": {
     "psr-4": {
       "HR\\": "src/",
-      "HR\\PaymentOption\\": "src/payment",
+      "HR\\FormulaOption\\": "src/formula",
       "HR\\ProcessOption\\MyInterFace\\": "src/process",
 	  "HR\\ProcessOption\\MyClass\\": "src/process",
 	  "HR\\ProcessOption\\MyTrait\\": "src/process",
